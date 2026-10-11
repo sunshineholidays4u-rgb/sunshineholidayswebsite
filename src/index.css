@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #FBF8F2;
+    --bg-secondary: #FFFDF9;
+    --text-main: #141414;
+    --text-muted: #615B52;
+    --accent-gold: #D49B24;
+    --accent-gold-hover: #B88015;
+    --accent-gold-light: #FDF4E3;
+    --dark-bg: #111111;
+    --border-warm: #EAE3D2;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .font-display {
+    font-family: 'Cinzel', serif;
+  }
+
+  .font-tamil {
+    font-family: 'Noto Sans Tamil', 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+@utility font-display {
+  font-family: 'Cinzel', serif;
+}
+
+@utility font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+@utility font-sans {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@utility font-tamil {
+  font-family: 'Noto Sans Tamil', sans-serif;
+}
+
+/* Gold Gradient text helper */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #ECC062 0%, #D49B24 50%, #B88015 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Gold Shimmer Button */
+.btn-gold {
+  background: linear-gradient(135deg, #ECC062 0%, #D49B24 50%, #B88015 100%);
+  color: #111111;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #F3CD73 0%, #E0A72E 50%, #C48C1C 100%);
+  box-shadow: 0 4px 18px rgba(212, 155, 36, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Infinite Marquee for Reviews */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 45s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
