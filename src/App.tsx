@@ -50,7 +50,7 @@ export function App() {
       <Navbar onPlanTripClick={scrollToBooking} />
 
       {/* Main Content Sections */}
-      <main className="flex-1">
+      <main className="flex-1 pb-14 sm:pb-0">
         {/* Full-bleed Cinematic Hero Image Carousel with Overlaid Text */}
         <Hero
           onSelectVehicle={handleSelectVehicle}

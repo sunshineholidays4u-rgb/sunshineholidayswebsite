@@ -25,7 +25,7 @@ export const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle, onEnquire }) 
       </div>
 
       {/* Card Body */}
-      <div className="p-6 sm:p-7 flex flex-col flex-1 justify-between space-y-5">
+      <div className="p-5 sm:p-7 flex flex-col flex-1 justify-between space-y-4 sm:space-y-5">
         <div className="space-y-3">
           <div className="flex items-baseline justify-between">
             <h3 className="font-serif text-2xl font-bold text-[#141414] group-hover:text-[#D49B24] transition-colors">
@@ -55,7 +55,7 @@ export const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle, onEnquire }) 
         <div className="pt-3 border-t border-[#EAE3D2]">
           <button
             onClick={() => onEnquire(vehicle.enquiryValue)}
-            className="w-full inline-flex items-center justify-center gap-2 bg-[#141414] hover:bg-[#D49B24] text-[#FFFFFF] hover:text-[#111111] text-sm font-bold py-3.5 px-4 rounded-xl transition-all duration-200 shadow-xs group-hover:shadow focus:outline-none focus:ring-2 focus:ring-[#D49B24]"
+            className="w-full inline-flex items-center justify-center gap-2 bg-[#141414] hover:bg-[#D49B24] text-[#FFFFFF] hover:text-[#111111] text-sm font-bold py-3.5 px-4 rounded-xl transition-all duration-200 shadow-xs group-hover:shadow focus:outline-none focus:ring-2 focus:ring-[#D49B24] active:scale-98"
           >
             <span>{vehicle.ctaText}</span>
             <ArrowUpRight className="w-4 h-4" />

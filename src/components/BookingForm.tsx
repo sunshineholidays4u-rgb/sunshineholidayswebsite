@@ -119,7 +119,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                   Plan Your Journey with Sunshine Holidays
                 </h2>
                 <p className="text-sm sm:text-base text-[#D5CEBF] font-light">
-                  Enter your trip details below. Your quote request opens instantly in WhatsApp addressed to our Coimbatore team for rapid pricing & vehicle confirmation.
+                  Enter your trip details below. Your quote request opens instantly in WhatsApp addressed to our primary line (+91 88703 42758) for rapid pricing & vehicle confirmation.
                 </p>
               </div>
             </div>

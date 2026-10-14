@@ -47,11 +47,11 @@ export const Testimonials: React.FC = () => {
         <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#FBF8F2] to-transparent z-10 pointer-events-none" />
         <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#FBF8F2] to-transparent z-10 pointer-events-none" />
 
-        <div className="animate-marquee flex gap-6">
+        <div className="animate-marquee flex gap-4 sm:gap-6 hover:[animation-play-state:paused] active:[animation-play-state:paused]">
           {marqueeItems.map((item, idx) => (
             <div
               key={`${item.id}-${idx}`}
-              className="w-[320px] sm:w-[380px] shrink-0 p-6 rounded-2xl bg-white border border-[#EAE3D2] shadow-sm hover:shadow-xl hover:border-[#D49B24]/60 transition-all duration-300 flex flex-col justify-between"
+              className="w-[290px] sm:w-[380px] shrink-0 p-5 sm:p-6 rounded-2xl bg-white border border-[#EAE3D2] shadow-sm hover:shadow-xl hover:border-[#D49B24]/60 transition-all duration-300 flex flex-col justify-between"
             >
               <div className="space-y-4">
                 {/* Author Info with Initial Monogram */}

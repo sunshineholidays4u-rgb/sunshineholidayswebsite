@@ -10,11 +10,30 @@ export interface TripEnquiryData {
   requirements?: string;
 }
 
-export const PHONE_NUMBER = '+918870283244';
-export const PHONE_DISPLAY = '+91 88702 83244';
-export const WHATSAPP_RAW_NUMBER = '918870283244';
+// Primary Contact (Call & WhatsApp)
+export const PHONE_NUMBER_PRIMARY = '+918870342758';
+export const PHONE_DISPLAY_PRIMARY = '+91 88703 42758';
+export const WHATSAPP_RAW_PRIMARY = '918870342758';
 
-export const createWhatsAppEnquiryUrl = (data: TripEnquiryData): string => {
+// Secondary / Alternate Line
+export const PHONE_NUMBER_SECONDARY = '+918870283244';
+export const PHONE_DISPLAY_SECONDARY = '+91 88702 83244';
+export const WHATSAPP_RAW_SECONDARY = '918870283244';
+
+// Backward compatibility & aliases
+export const PHONE_NUMBER_1 = PHONE_NUMBER_PRIMARY;
+export const PHONE_DISPLAY_1 = PHONE_DISPLAY_PRIMARY;
+export const WHATSAPP_RAW_NUMBER_1 = WHATSAPP_RAW_PRIMARY;
+
+export const PHONE_NUMBER_2 = PHONE_NUMBER_SECONDARY;
+export const PHONE_DISPLAY_2 = PHONE_DISPLAY_SECONDARY;
+export const WHATSAPP_RAW_NUMBER_2 = WHATSAPP_RAW_SECONDARY;
+
+export const PHONE_NUMBER = PHONE_NUMBER_PRIMARY;
+export const PHONE_DISPLAY = `${PHONE_DISPLAY_PRIMARY} / ${PHONE_DISPLAY_SECONDARY}`;
+export const WHATSAPP_RAW_NUMBER = WHATSAPP_RAW_PRIMARY;
+
+export const createWhatsAppEnquiryUrl = (data: TripEnquiryData, whatsappNumber: string = WHATSAPP_RAW_NUMBER): string => {
   const lines = [
     `*Trip Enquiry — Sunshine Holidays*`,
     `--------------------------------`,
@@ -32,15 +51,15 @@ export const createWhatsAppEnquiryUrl = (data: TripEnquiryData): string => {
   ].filter(Boolean);
 
   const message = lines.join('\n');
-  return `https://wa.me/${WHATSAPP_RAW_NUMBER}?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 };
 
-export const createQuickVehicleWhatsAppUrl = (vehicleName: string): string => {
+export const createQuickVehicleWhatsAppUrl = (vehicleName: string, whatsappNumber: string = WHATSAPP_RAW_NUMBER): string => {
   const message = `Hello Sunshine Holidays, I would like to enquire about booking the *${vehicleName}* for a trip. Could you please share the availability and details?`;
-  return `https://wa.me/${WHATSAPP_RAW_NUMBER}?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 };
 
-export const createQuickDestinationWhatsAppUrl = (destinationName: string): string => {
+export const createQuickDestinationWhatsAppUrl = (destinationName: string, whatsappNumber: string = WHATSAPP_RAW_NUMBER): string => {
   const message = `Hello Sunshine Holidays, I am planning a journey to *${destinationName}*. Could you please provide information on vehicle options and trip planning?`;
-  return `https://wa.me/${WHATSAPP_RAW_NUMBER}?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 };

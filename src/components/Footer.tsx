@@ -1,6 +1,6 @@
 import React from 'react';
 import { Phone, MessageCircle, MapPin, ArrowUp } from 'lucide-react';
-import { PHONE_DISPLAY, PHONE_NUMBER, WHATSAPP_RAW_NUMBER } from '../utils/whatsapp';
+import { PHONE_DISPLAY_1, PHONE_DISPLAY_2, PHONE_NUMBER_1, PHONE_NUMBER_2, WHATSAPP_RAW_NUMBER } from '../utils/whatsapp';
 
 interface FooterProps {
   onVehicleClick: (vehicleName: string) => void;
@@ -14,7 +14,7 @@ export const Footer: React.FC<FooterProps> = ({ onVehicleClick }) => {
   };
 
   return (
-    <footer className="bg-[#111111] text-[#FFFFFF] pt-16 pb-12 border-t border-[#D49B24]/30">
+    <footer className="bg-[#111111] text-[#FFFFFF] pt-16 pb-28 sm:pb-12 border-t border-[#D49B24]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-14 border-b border-white/10">
           {/* Brand Info (5 cols) */}
@@ -41,13 +41,24 @@ export const Footer: React.FC<FooterProps> = ({ onVehicleClick }) => {
               Sunshine Holidays provides reliable cab rentals, outstation travel, family holidays, and group tour vehicles based out of Coimbatore, serving destinations all over India.
             </p>
 
-            <div className="pt-2 flex items-center gap-3">
+            <div className="pt-2 flex flex-wrap items-center gap-2.5">
               <a
-                href={`tel:${PHONE_NUMBER}`}
-                className="inline-flex items-center gap-2 bg-[#1A1917] hover:bg-[#D49B24] hover:text-[#111111] text-xs font-bold px-4 py-2.5 rounded-lg transition-colors border border-white/15"
+                href={`tel:${PHONE_NUMBER_1}`}
+                className="inline-flex items-center gap-2 bg-[#1A1917] hover:bg-[#D49B24] hover:text-[#111111] text-xs font-bold px-3.5 py-2.5 rounded-lg transition-colors border border-[#D49B24]/40 shadow-xs"
+                title="Call Primary Line: +91 88703 42758"
               >
                 <Phone className="w-3.5 h-3.5 text-[#ECC062]" />
-                <span>{PHONE_DISPLAY}</span>
+                <span>{PHONE_DISPLAY_1}</span>
+                <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-[#D49B24]/25 text-[#ECC062] border border-[#D49B24]/40">Primary</span>
+              </a>
+
+              <a
+                href={`tel:${PHONE_NUMBER_2}`}
+                className="inline-flex items-center gap-2 bg-[#1A1917] hover:bg-[#D49B24] hover:text-[#111111] text-xs font-bold px-3.5 py-2.5 rounded-lg transition-colors border border-white/15"
+                title="Call Alternate Line: +91 88702 83244"
+              >
+                <Phone className="w-3.5 h-3.5 text-[#ECC062]" />
+                <span>{PHONE_DISPLAY_2}</span>
               </a>
 
               <a

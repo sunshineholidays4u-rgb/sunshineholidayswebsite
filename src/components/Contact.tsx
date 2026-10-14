@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, MapPin, Copy, Check, ExternalLink, Navigation } from 'lucide-react';
-import { PHONE_DISPLAY, PHONE_NUMBER, WHATSAPP_RAW_NUMBER } from '../utils/whatsapp';
+import { PHONE_DISPLAY_1, PHONE_DISPLAY_2, PHONE_NUMBER_1, PHONE_NUMBER_2, WHATSAPP_RAW_NUMBER } from '../utils/whatsapp';
 
 interface ContactProps {
   onQuickBookClick: () => void;
@@ -73,12 +73,12 @@ export const Contact: React.FC<ContactProps> = ({ onQuickBookClick }) => {
                   <div className="flex items-center justify-between">
                     <span className="text-xs uppercase tracking-wider font-bold text-[#615B52] flex items-center gap-1.5">
                       <Phone className="w-3.5 h-3.5 text-[#D49B24]" />
-                      Direct Line
+                      Direct Phone Lines
                     </span>
                     <button
-                      onClick={() => copyToClipboard(PHONE_DISPLAY, 'phone')}
+                      onClick={() => copyToClipboard(`${PHONE_DISPLAY_1}, ${PHONE_DISPLAY_2}`, 'phone')}
                       className="text-xs text-[#615B52] hover:text-[#D49B24] flex items-center gap-1 transition-colors"
-                      title="Copy phone number"
+                      title="Copy phone numbers"
                     >
                       {copiedPhone ? (
                         <>
@@ -94,24 +94,60 @@ export const Contact: React.FC<ContactProps> = ({ onQuickBookClick }) => {
                     </button>
                   </div>
 
-                  <div className="text-xl sm:text-2xl font-bold text-[#141414]">
-                    {PHONE_DISPLAY}
+                  {/* Phone Lines with Primary Tag */}
+                  <div className="space-y-2">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-3 text-xl sm:text-2xl font-bold text-[#141414]">
+                      <div className="flex items-center gap-2">
+                        <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-[#FDF4E3] text-[#B88015] border border-[#D49B24]/40">Primary</span>
+                        <a
+                          href={`tel:${PHONE_NUMBER_1}`}
+                          className="hover:text-[#D49B24] transition-colors"
+                          title="Call Primary Line: +91 88703 42758"
+                        >
+                          {PHONE_DISPLAY_1}
+                        </a>
+                      </div>
+                      <span className="hidden sm:inline text-[#C4BCAB] font-light">/</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-black/5 text-zinc-600 border border-zinc-200">Alternate</span>
+                        <a
+                          href={`tel:${PHONE_NUMBER_2}`}
+                          className="hover:text-[#D49B24] transition-colors"
+                          title="Call Alternate Line: +91 88702 83244"
+                        >
+                          {PHONE_DISPLAY_2}
+                        </a>
+                      </div>
+                    </div>
+                    <p className="text-xs text-[#615B52]">
+                      <span className="text-[#D49B24] font-semibold">Line 1 (88703 42758)</span> is connected to 24/7 Calls & Direct WhatsApp booking.
+                    </p>
                   </div>
 
                   <div className="flex flex-wrap gap-2.5 pt-1">
                     <a
-                      href={`tel:${PHONE_NUMBER}`}
-                      className="inline-flex items-center gap-2 bg-[#141414] hover:bg-[#D49B24] text-white hover:text-[#111111] text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-xs"
+                      href={`tel:${PHONE_NUMBER_1}`}
+                      className="inline-flex items-center gap-2 bg-[#141414] hover:bg-[#D49B24] text-white hover:text-[#111111] text-xs font-bold px-4 py-3 rounded-xl transition-all shadow-xs active:scale-95"
+                      title="Call 88703 42758"
                     >
-                      <Phone className="w-3.5 h-3.5" />
-                      <span>Call Now</span>
+                      <Phone className="w-3.5 h-3.5 text-[#ECC062]" />
+                      <span>Call 88703 (Primary)</span>
+                    </a>
+
+                    <a
+                      href={`tel:${PHONE_NUMBER_2}`}
+                      className="inline-flex items-center gap-2 bg-black/5 hover:bg-black/10 text-zinc-800 text-xs font-bold px-4 py-3 rounded-xl border border-zinc-200 hover:border-zinc-300 transition-all shadow-xs active:scale-95"
+                      title="Call 88702 83244"
+                    >
+                      <Phone className="w-3.5 h-3.5 text-zinc-600" />
+                      <span>Call 88702</span>
                     </a>
 
                     <a
                       href={whatsappUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-colors shadow-xs"
+                      className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold px-4 py-3 rounded-xl transition-colors shadow-xs active:scale-95"
                     >
                       <svg
                         viewBox="0 0 24 24"
